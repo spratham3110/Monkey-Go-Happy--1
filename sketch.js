@@ -56,9 +56,6 @@ function draw() {
     if (gameState === PLAY) {
       score = Math.ceil(frameCount/frameRate()); 
       
-      if (keyDown("space")&& monkey.y >= 180) {
-        monkey.velocityY = -12
-      }
       if (ground.x < 0) {
         ground.x = ground.width/2;
       }
@@ -89,6 +86,10 @@ function draw() {
       foodGroup.setVelocityXEach(0);    
     }
     monkey.collide(ground2);
+    
+    if (keyDown("space")&& monkey.y >= 180) {
+        monkey.velocityY = -12
+      }
   
     ground.depth = monkey.depth;
     monkey.depth = monkey.depth +1;
